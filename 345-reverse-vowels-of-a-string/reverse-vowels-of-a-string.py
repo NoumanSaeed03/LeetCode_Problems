@@ -3,16 +3,16 @@ class Solution:
         vowels =  {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
         left = 0
         right = len(s) - 1
-        s = list(s)
+        temp = list(s)
 
         while left < right:
-            if s[left] in vowels and s[right] in vowels:
-                s[left], s[right] = s[right], s[left]
+            if temp[left] in vowels and temp[right] in vowels:
+                temp[left], temp[right] = temp[right], temp[left]
                 left +=1
                 right -=1
-            elif s[left] not in vowels:
+            elif temp[left] not in vowels and left < right:
                 left +=1
-            elif s[right] not in vowels:
+            elif temp[right] not in vowels and left < right:
                 right -=1
 
-        return ''.join(s)
+        return ''.join(temp)
